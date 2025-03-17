@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button onclick="add_cart(0)">Show cart</button>
+        <button onclick="add_cart(1)">+1</button>
+        <button onclick="add_cart(2)">+2</button>
+        <button onclick="add_cart(3)">+3</button>
+        <button onclick="add_cart(4)">+4</button>
+        <button onclick="add_cart(5)">+5</button>
+        <button onclick="add_cart('Clear')">Clear Cart</button>
+        <button onclick="add_cart(-1)">-1</button>
+        <button onclick="add_cart(-2)">-2</button>
+        <button onclick="add_cart(-3)">-3</button>
+        <h1>Calculator</h1>
+        <button onclick="Calculator('1')">1</button>
+        <button onclick="Calculator('2')">2</button>
+        <button onclick="Calculator('3')">3</button>
+        <button onclick="Calculator('+')">+</button>
+        <button onclick="localStorage.setItem('lastcalculation',cal_value);console.log(eval(cal_value));cal_value = '';">=</button>
+        <button onclick="localStorage.removeItem('lastcalculation')">reset</button>
+        <p>2:32:52</p>
+    </body>
+    <footer>
+        <script>
+            let name = 'KISHORE';
+            console.log(`My name is ${name}`);
+            let coffe = 5;
+            let bangels = 3;
+            let soup = 9;
+            let cost = coffe + bangels + bangels + soup;
+            console.log(`Cost :$${cost}`);
+            let after_tax = cost * 0.1;
+            console.log(`Tax(10%) : $${after_tax}`);
+            let totalCost = cost + after_tax;
+            console.log(`Total cost : $${totalCost}`);
+            let cart = 0;
+            function add_cart(val)
+            {
+                if (val == 'Clear')
+                {
+                    console.log('Cart cleared');
+                    cart = 0;
+                    console.log('CartQuantity :' + cart);
+                }
+                else
+                {
+                cart += val;
+                console.log('CartQuantity :' + cart);
+                if (cart < 0)
+                {
+                    console.log('CartQuantity low');
+                }
+                else if(cart > 10)
+                {
+                    console.log('CartQuantity reached limit');
+                }
+                }
+            };
+            let cal_value ='';
+            function Calculator(val)
+            {
+                cal_value += val;
+                console.log(cal_value);
+            };
+            console.log(localStorage.getItem('lastcalculation') || 0);
+            let age = 127;
+            if (age >= 18)
+            {
+                console.log('Hi Driver');
+            }
+            else
+            {
+                console.log('Go to school');
+            };
+            let date = new Date();
+            let Hours = date.getHours();
+            let user_name = 'KISHORE';
+            if (Hours >= 6 && Hours < 12 )
+            {
+                console.log(`Hey you good morning ${user_name}`);
+            }
+            else if (Hours >= 12 && Hours < 17 )
+            {
+                console.log(`Good afternoon ${user_name}`);
+            }
+            else
+            {
+                console.log(`Good night ${user_name}`);
+            }
+            //have discount problem
+            let get_age = 6;
+            let normal_day = false;
+            if ((get_age <= 6 || get_age >= 65) && normal_day)
+            {
+                console.log(`Eligible for discount ${user_name}`);
+            }
+            else
+            {
+                console.log(`No discount ${user_name}`)
+            };
+            //length conversion 
+            function conversion(number,from,to)
+            {
+                let check = true;
+                if (from.toLowerCase() === 'miles' &&  to.toLowerCase() === 'km')
+                {
+                    number = number * 1.6;
+                }
+                else if (from.toLowerCase() === 'km' &&  to.toLowerCase() === 'miles')
+                {
+                    number = number / 1.6;
+                }
+                else if (from.toLowerCase() === 'km' &&  to.toLowerCase() === 'ft')
+                {
+                    number = number * 3281;
+                }
+                else if (from.toLowerCase() === 'miles' &&  to.toLowerCase() === 'ft')
+                {
+                    number = number * 5280;
+                }
+                else
+                {
+                    check = false;
+                }
+                
+                check ? console.log(`${Math.round(number)}${to}`) :  console.log(`invalid conversion`);
+            };
+            conversion(1,'MILES','KM');
+            //objects
+            const basket = {name : 'Basketball',price : 2095,'delivery-time' : '3-days'}
+            basket.price += 500; 
+            console.log(`name : ${basket.name} Price : ${basket.price} Delivery-time : ${basket['delivery-time']}`);
+            //nested objects
+            const main_prod = 
+            {
+                prod1 : {name : 'ABC' , price : 200},
+                prod2 : {name : 'DEF' , price : 400}
+            };
+            function compare_product()
+            {
+                if (main_prod.prod1.price === main_prod.prod2.price)
+                {
+                    return true
+                } 
+                else
+                {
+                    return false
+                }
+            };
+
+            let get_less_expensive_product = compare_product()
+
+            console.log(get_less_expensive_product ? 'TRUE' : 'FALSE');
+            
+        </script>
+    </footer>
+</html>
