@@ -7,6 +7,7 @@
         <p>Coin flip choose the side</p>
         <button onclick="coin_flip_com_val('HEAD')">HEAD</button>
         <button onclick="coin_flip_com_val('TAILS')">TAILS</button>
+        <p id="result"></p>
     </body>
     <footer>
         <script>
@@ -40,7 +41,8 @@
                 {
                     pass = false;
                 };
-                pass ? alert(`side choosen by user ${val} ,You won the tose`) : alert(`side choosen by user ${com_choice} ,Computer won the tose`);
+                pass ? document.getElementbyId('result').innerHTML = `side choosen by user ${val} ,You won the tose` : document.getElementbyId('result').innerHTML = `side choosen by user ${com_choice} ,Computer won the tose`;
+                    //alert(`side choosen by user ${val} ,You won the tose`) : alert(`side choosen by user ${com_choice} ,Computer won the tose`);
             };
         </script>
     </footer>
